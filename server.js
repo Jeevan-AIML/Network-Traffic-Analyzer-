@@ -29,22 +29,28 @@ const app = express();
 app.use(cors({
   origin: [
     "https://rtp-tan-chi.vercel.app",
+    "https://networktrafficanalyzer.vercel.app",
     "http://localhost:5173",
     "http://localhost:5174"
   ],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   credentials: true
 }));
-
 // ─── Create HTTP Server (needed for Socket.io) ────────────────────────────────
 const server = http.createServer(app);
 
 // ─── Socket.io Setup ──────────────────────────────────────────────────────────
 const io = new Server(server, {
   cors: {
-    origin: process.env.CLIENT_URL || "http://localhost:5173",
+    origin: [
+      "https://rtp-tan-chi.vercel.app",
+      "https://networktrafficanalyzer.vercel.app",
+      "http://localhost:5173",
+      "http://localhost:5174"
+    ],
     methods: ["GET", "POST"],
-    credentials: true,
-  },
+    credentials: true
+  }
 });
 
 // Socket.io connection event
