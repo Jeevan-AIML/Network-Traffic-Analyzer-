@@ -50,12 +50,14 @@ io.on("connection", (socket) => {
 
 // ─── CORS Middleware ──────────────────────────────────────────────────────────
 // Allow requests from the React frontend
-app.use(
-  cors({
-     origin: ["http://localhost:5173", "http://localhost:5174"],
+app.use(cors({
+  origin: [
+    "https://rtp-tan-chi.vercel.app",
+    "https://networktrafficanalyzer.vercel.app",
+    "http://localhost:5173"
+  ],
   credentials: true
-  })
-);
+}));
 
 // ─── Body Parsers ─────────────────────────────────────────────────────────────
 app.use(express.json());                        // Parse JSON request bodies
