@@ -54,7 +54,8 @@ app.use(cors({
   origin: [
     "https://rtp-tan-chi.vercel.app",
     "https://networktrafficanalyzer.vercel.app",
-    "http://localhost:5173"
+    "http://localhost:5173",
+    "http://localhost:5174"
   ],
   credentials: true
 }));
