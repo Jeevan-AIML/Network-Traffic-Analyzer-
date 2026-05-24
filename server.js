@@ -26,20 +26,15 @@ connectDB();
 
 // ─── Initialize Express App ───────────────────────────────────────────────────
 const app = express();
-app.use(cors({
-  origin: true,
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
-}));
+
 // ─── Create HTTP Server (needed for Socket.io) ────────────────────────────────
 const server = http.createServer(app);
 
 // ─── Socket.io Setup ──────────────────────────────────────────────────────────
 const io = new Server(server, {
   cors: {
-    origin: true,
+    origin: "*  ",
     methods: ["GET", "POST"],
-    credentials: true
   }
 });
 
