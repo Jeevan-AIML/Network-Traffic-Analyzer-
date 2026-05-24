@@ -26,6 +26,14 @@ connectDB();
 
 // ─── Initialize Express App ───────────────────────────────────────────────────
 const app = express();
+app.use(cors({
+  origin: [
+    "https://rtp-tan-chi.vercel.app",
+    "http://localhost:5173",
+    "http://localhost:5174"
+  ],
+  credentials: true
+}));
 
 // ─── Create HTTP Server (needed for Socket.io) ────────────────────────────────
 const server = http.createServer(app);
